@@ -4,9 +4,9 @@ pipeline {
     tools {nodejs "node14"}
 
     stages {
-        stage('Insatll') {
+        stage('Insatll dependencies') {
             steps {
-                echo 'Installing..'
+                echo 'Installing dependencies..'
                 sh 'npm install'
             }
         }
