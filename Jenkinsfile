@@ -4,16 +4,27 @@ pipeline {
     tools {nodejs "node14"}
 
     stages {
-        stage('Build') {
+        stage('Insatll') {
             steps {
-                echo 'Building..'
+                echo 'Installing..'
                 sh 'npm install'
+            }
+        }
+        stage('Lint') {
+            steps {
+                echo 'Linting..'
+                sh 'npm run lint'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'npm run test'
+            }
+        }
+         stage('Build') {
+            steps {
+                echo 'Building..'
             }
         }
         stage('Deploy') {
