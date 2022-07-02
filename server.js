@@ -2,6 +2,7 @@ const express=require('express');
 const app= express();
 const router = express.Router();
 
+const service = require('./src/services/hello-world-service');
 const port = 3000;
 
 const server = app.listen(port, (err) => {
@@ -12,5 +13,5 @@ const server = app.listen(port, (err) => {
 })
 
 app.get('/', (request , response) => {
-  response.send("Hello World");
+  response.send(service.helloWorld());
 });
